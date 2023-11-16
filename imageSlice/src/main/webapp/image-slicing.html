@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<img id="merged-image" />
+	<img id="chunk-image1" />
+	<img id="chunk-image2" />
+	<img id="chunk-image3" />
+	<script type="text/javascript">
+var count=0;
+function loadImage(){
+	
+	
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = async function(){
+	    if (this.readyState == 4 && this.status == 200){
+	      
+	        var  blob  = await this.response;
+	        console.log(this.response);
+	        const chunk = blob.slice(0, 1024, 'image/gif');
+	        const chunks = [];
+	        const numberOfSlices = 10;
+	        const chunkSize = Math.ceil(blob.size / numberOfSlices);
+	        for (let i = 0; i < numberOfSlices; i += 1) {
+	          const startByte = chunkSize * i;
+	          chunks.push(
+	            blob.slice(
+	              startByte,
+	              startByte + chunkSize,
+	              blob.type
+	            )
+	          );
+	        }
+	        console.log(chunks);  // This is as follows..
+	     
+	        const mergedBlob = new Blob(
+	        		  chunks,
+	        		  { type: blob.type }
+	        		);
+	       
+	        document.getElementById('merged-image').src = window.URL.createObjectURL(mergedBlob);
+	        document.getElementById('chunk-image1').src = window.URL.createObjectURL(chunks[0]);
+	        
+	        const chunks1 = [];
+	        chunks1.push(chunks[0]);
+	        chunks1.push(chunks[1]);
+	        const mergedBlob1 = new Blob(
+	        		chunks1,
+	        		  { type: blob.type }
+	        		);
+	        document.getElementById('chunk-image2').src = window.URL.createObjectURL(mergedBlob1);
+	        
+	        const chunks2 = [];
+	        chunks2.push(chunks[0]);
+	        chunks2.push(chunks[1]);
+	        chunks2.push(chunks[2]);
+	        const mergedBlob2 = new Blob(
+	        		chunks2,
+	        		  { type: blob.type }
+	        		);
+	        document.getElementById('chunk-image3').src = window.URL.createObjectURL(mergedBlob2);
+	       
+	    }
+	}
+	xhr.open('GET', 'female.gif');
+	xhr.responseType = 'blob';
+	xhr.send();  
+}
+loadImage();
+
+
+</script>
+</body>
+</html>

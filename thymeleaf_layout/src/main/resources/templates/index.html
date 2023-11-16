@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- Default Layout Import-->
+<html  xmlns:th="https://www.thymeleaf.org"
+	   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       layout:decorate="common-layout">
+
+<head>
+	<!-- 현재 화면제목 -->
+	<title>메인페이지</title>
+	<!-- 현재 화면에서만 사용하는 css -->
+	<style type="text/css"  >
+		    body {
+				margin: 30px;
+				border: 1px solid red;
+			}
+	</style>
+	<!-- 현재 화면에서만 사용하는 js -->
+	<script type="text/javascript" >
+			console.log('head script');
+	</script>
+</head>
+
+<body>
+	<th:block layout:fragment="content">
+		<div>메인contentsdafsdfsdfsd</div>
+		<div>메인contentsdafsdfsdfsd</div>
+		<div>메인contentsdafsdfsdfsd</div>
+		<div>메인contentsdafsdfsdfsd</div>
+		<div>메인contentsdafsdfsdfsd</div>
+		<script th:inline="javascript" type="text/javascript" th:src="@{https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js}"></script>
+	</th:block>
+	<th:block layout:fragment="script">
+		<script type="text/javascript"  >
+		console.log('body end script');
+		</script>
+	</th:block>
+	
+	
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+server:
+  port: 9053
+logging:
+  level:
+    org: 
+      springframework: 
+        security: TRACE
+
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true

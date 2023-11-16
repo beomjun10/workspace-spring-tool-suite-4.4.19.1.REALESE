@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--Thymeleaf, ConfigFragment 선언-->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="common-top-head(css,script)" th:remove="tag">
+    <head>
+        <!--Common Head-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport"
+              content="width=device-width, maximum-scale=1.0, minimum-scale=1, user-scalable=yes,initial-scale=1.0"/>
+        <title  th:include="${title}">공통 타이틀</title>
+        <!--Common CSS -->
+        <link th:rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css}">
+		<!--Custom CSS -->
+        <style type="text/css" th:inline="css" th:include="${css}" ></style>
+        <!--Common JS-->
+        <script th:inline="javascript" type="text/javascript" th:src="@{https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+         <!--Custom JS-->
+        <script th:inline="javascript" type="text/javascript"  th:include="${script}"></script>
+    </head>
+</html>

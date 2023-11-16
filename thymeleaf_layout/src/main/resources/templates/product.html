@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- Default Layout Import-->
+<html  xmlns:th="https://www.thymeleaf.org"
+	   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       layout:decorate="common-layout">
+
+<head>
+	<title>Shop Grid No Sidebar</title>
+	<!-- 현재 화면에서만 사용하는 css -->
+	<style type="text/css"  >
+		    body {
+				
+				border: 1px solid orange;
+			}
+	</style>
+	<!-- 현재 화면에서만 사용하는 js -->
+	<script type="text/javascript" >
+		console.log("javascript code product head");
+	</script>
+</head>
+
+<body>
+	<th:block layout:fragment="content">
+		<div>제품content</div>
+	</th:block>
+	<th:block layout:fragment="script">
+		<script type="text/javascript"  >
+		console.log('body end script');
+		</script>
+	</th:block>
+</body>
+
+</html>

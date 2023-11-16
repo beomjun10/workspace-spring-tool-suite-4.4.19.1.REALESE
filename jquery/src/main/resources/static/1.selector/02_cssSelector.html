@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS 선택자를 이용한 HTML DOM Element 검색</title>
+<style type="text/css">
+	
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		let h2Text = $('h2').text();
+		$('#title').text(h2Text);
+		$('.contents1').html("<u>jQuery는 오픈소스입니다.</u>");
+		$('.contents2').text("<u>jQuery는 오픈소스입니다.</u>");
+		console.log($('.contents1').text());
+		console.log($('.contents2').html());
+		
+		console.log($('body').html());
+		console.log($('body').text());
+		
+		$('h2').text(function(index,text){
+			if(index%2==0){
+				return `짝수일때인자로대입된함수가반환한값[${index}]`;
+			}else{
+				return `홀수일때인자로대입된함수가반환한값[${index}]`;
+			}
+		});
+	});
+</script>
+</head>
+<body style="font-size: 15pt">
+	<h2>CSS 선택자를 이용한 HTML Element 검색1</h2>
+	<h2>CSS 선택자를 이용한 HTML Element 검색2</h2>
+	<div class="test" id="title" style="border: 2px solid red;">Hello jQuery~~</div>
+	<p class="contents1"></p>
+	<p class="contents2"></p>
+</body>
+</html>

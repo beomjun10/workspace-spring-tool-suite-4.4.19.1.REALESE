@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>this</h1><hr>
+<script type="text/javascript">
+	
+	let obj1={
+		'no':1,
+		'func1':function(){
+			console.log('obj1.func1 -->this:'+this.no);
+		}
+		
+	}
+	let obj2={
+		'no':2,
+		'func2':function(){
+			console.log('obj1.func2 -->this:'+this.no);
+		}
+		
+	}
+	console.log('--------func----------');
+	obj1.func1();
+	obj2.func2();
+	console.log('--------func.call(obj1)----------');
+	obj1.func1.call(obj2)
+	obj1.func1.call(window)
+	console.log('--------func.apply(obj1)----------');
+	obj2.func2.apply(obj1);
+	
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
